@@ -37,6 +37,32 @@ def limpiar_dataframe(df):
 base_a_cleaned = limpiar_dataframe(base_a.copy())
 base_b_cleaned = limpiar_dataframe(base_b.copy())
 ```
+
+Finally, the fuzzy match was conducted with "NombreEstablecimiento", "Ciudad", and "Direccion". A function was created that utilizes the `fuzz.ratio` function from the FuzzyWuzzy library and weights the match of these three attributes to enhance assurance. The results were collected in MySQL Workbench, yielding 1,601 matches of high quality with only one repetition. This function effectively solves the problem of matching two databases.
+
+### Enhanced Fuzzy Matching Function
+
+```python
+def enhanced_fuzzy_match(row):
+    best_match = None
+    best_score = 0
+    
+    for _, match_row in base_b_df.iterrows():
+        score1 = fuzz.ratio(row['NombreEstablecimiento'], match_row['NombreEstablecimiento'])
+        score2 = fuzz.ratio(row['Ciudad'], match_row['Ciudad'])
+        score3 = fuzz.ratio(row['Direccion'], match_row['Direccion'])
+        
+        weighted_score = (score1 + score2 + score3) / 3.0  # Updated the average calculation
+
+        if weighted_score > best_score:
+            best_score = weighted_score
+            best_match = match_row['ID']
+            
+    if best_score >= 85:
+        return best_match  
+    return None
+```
+
 ## Conclusion and Future Directions
 The fuzzy matching process has proven successful in linking datasets that lack exact matches. Future work could explore machine learning models to predict matches or identify patterns that contribute to successful matches.
 
