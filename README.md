@@ -21,8 +21,8 @@ Enhanced Matching: An enhanced fuzzy match function is created, taking into acco
 #### Results
 A total of 1,601 high-quality matches are identified with minimal repetition.
 The MySQL query confirms 1,656 matches, showcasing the effectiveness of the fuzzy matching process.
-![Local Image](./images/result2.png)
-![Local Image](./images/result1.png)
+![Local Image](result2.png)
+![Local Image](result1.png)
 ### Code Snippets
 Here's an example of the data cleaning and transformation step:
 
