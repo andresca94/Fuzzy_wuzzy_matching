@@ -36,6 +36,7 @@ def limpiar_dataframe(df):
 
 base_a_cleaned = limpiar_dataframe(base_a.copy())
 base_b_cleaned = limpiar_dataframe(base_b.copy())
+```
 ## Conclusion and Future Directions
 The fuzzy matching process has proven successful in linking datasets that lack exact matches. Future work could explore machine learning models to predict matches or identify patterns that contribute to successful matches.
 
