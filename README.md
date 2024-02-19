@@ -38,7 +38,7 @@ base_a_cleaned = limpiar_dataframe(base_a.copy())
 base_b_cleaned = limpiar_dataframe(base_b.copy())
 ```
 
-Finally, the fuzzy match was conducted with "NombreEstablecimiento", "Ciudad", and "Direccion". A function was created that utilizes the `fuzz.ratio` function from the FuzzyWuzzy library and weights the match of these three attributes to enhance assurance. The results were collected in MySQL Workbench, yielding 1,601 matches of high quality with only one repetition. This function effectively solves the problem of matching two databases.
+This function effectively solves the problem of matching two databases.
 
 ### Enhanced Fuzzy Matching Function
 
