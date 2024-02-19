@@ -38,10 +38,7 @@ base_a_cleaned = limpiar_dataframe(base_a.copy())
 base_b_cleaned = limpiar_dataframe(base_b.copy())
 ```
 
-This function effectively solves the problem of matching two databases.
-
-### Enhanced Fuzzy Matching Function
-
+Here's an example of effectively solves the problem of matching two databases.
 ```python
 def enhanced_fuzzy_match(row):
     best_match = None
