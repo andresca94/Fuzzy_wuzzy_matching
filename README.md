@@ -60,6 +60,13 @@ def enhanced_fuzzy_match(row):
     return None
 ```
 This function effectively solves the problem of matching two databases.
+```python
+base_a_df['ID_from_base_b'] = base_a_df.progress_apply(enhanced_fuzzy_match, axis=1)
+base_a_df.to_sql('base_a_with_matches', connection, if_exists='replace', index=False)
+connection.close()
+```
+The enhanced fuzzy matching function is applied with a progress bar, and the DataFrame is saved back to a new SQL table. Finally, the database connection is closed to ensure that all changes are finalized.
+
 ## Conclusion and Future Directions
 The fuzzy matching process has proven successful in linking datasets that lack exact matches. Future work could explore machine learning models to predict matches or identify patterns that contribute to successful matches.
 
